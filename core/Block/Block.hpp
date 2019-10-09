@@ -15,13 +15,20 @@ class Block {
         string prevHash;
         uint32_t proof;
 
-        Block(
-            uint32_t,
-            const string &,
-            uint32_t,
-            vector<Transaction>,
-            string
-        );
+        Block();
+
+        class Builder {
+            public:
+                Builder();
+                Block::Builder setIndex(uint32_t index);
+                Block::Builder setPrevHash(string prevHash);
+                Block::Builder setProof(uint32_t proof);
+                Block::Builder setTransactions(vector<Transaction> transactions);
+                Block::Builder setData(const string &data);
+                Block done();
+            private:
+                Block & block;
+        };
 
         string getHash();
         void mine(uint32_t difficulty);

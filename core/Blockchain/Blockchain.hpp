@@ -22,7 +22,11 @@ class Blockchain {
         void addBlock(string, uint32_t);
         void doHalving();
         void print();
-        uint32_t addTransaction(Wallet, Wallet, double);
+        uint32_t addTransaction(
+            Wallet sender,
+            Wallet recipient,
+            double amount
+        );
 
     private:
         
