@@ -2,7 +2,7 @@
 
 #include <sstream>
 #include "Block.hpp"
-#include "../sha256/sha256.hpp"
+#include "../../lib/sha256/sha256.hpp"
 
 inline string Block::calculateHash() const {
 

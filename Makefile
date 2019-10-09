@@ -1,3 +1,7 @@
+server:
+	g++ -pthread -o server \
+		server.cc
+
 all:
 	g++ -o blockchain \
 		main.cc \
@@ -6,4 +10,4 @@ all:
 		core/Transaction/*.cc \
 		core/Node/*.cc \
 		core/Wallet/*.cc \
-		core/sha256/*.cc
+		lib/sha256/*.cc
