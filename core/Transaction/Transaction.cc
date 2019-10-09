@@ -8,6 +8,4 @@ Transaction::Transaction(
     sender(sender), 
     recipient(recipient),
     amount(amount)
-{
-
-};
+{};

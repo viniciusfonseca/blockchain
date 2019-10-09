@@ -1,7 +1,9 @@
 #include "Block.hpp"
 #include "../Transaction/Transaction.hpp"
 
-Block::Builder::Builder() : block(block) {}
+Block::Builder::Builder() : block(block) {
+    this->block = Block();
+}
 
 Block::Builder Block::Builder::setIndex(uint32_t index) {
     block.index = index;
