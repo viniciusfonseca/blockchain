@@ -27,6 +27,8 @@ class Blockchain {
             Wallet recipient,
             double amount
         );
+        uint32_t pow(uint32_t lastProof);
+        bool validateProof(uint32_t last_proof, uint32_t proof);
 
     private:
         
