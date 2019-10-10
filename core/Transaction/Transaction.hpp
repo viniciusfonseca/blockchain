@@ -1,26 +1,28 @@
 #pragma once
 
-#include "../Wallet/Wallet.hpp"
+#include <string>
+
+using namespace std;
 
 class Transaction {
 
     public:
-        Transaction(Wallet sender, Wallet recipient, double amount);
+        Transaction();
         
         class Builder {
             public:
                 Builder();
-                Builder setSender(Wallet sender);
-                Builder setRecipient(Wallet recipient);
+                Builder setSender(string sender);
+                Builder setRecipient(string recipient);
                 Builder setAmount(double amount);
-                Transaction done();
+                Transaction * done();
             private:
-                Transaction & transaction;
+                Transaction * transaction;
         };
         string toJSON();
 
     private:
-        Wallet sender;
-        Wallet recipient;
+        string sender;
+        string recipient;
         double amount;
 };

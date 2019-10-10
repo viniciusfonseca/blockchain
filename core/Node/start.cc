@@ -44,11 +44,16 @@ void Node::start() {
 
         server.Get(R"(/chain/(\w+))", [&](const Request& req, Response& res) {
             string hash = req.matches[1];
-            
+
         });
 
         server.Post("/mine", [&](const Request& req, Response& res) {
-
+            cout << "mining block..." << endl;
+            chain->addTransaction("", id, chain->block_reward);
+            cout << "transaction added" << endl;
+            chain->addBlock("[Block Mined]", 100);
+            cout << "block mined" << endl;
+            res.set_content(chain->getLastBlock()->toJSON(), "application/json");
         });
 
         server.Post("/transactions", [&](const Request& req, Response &res) {

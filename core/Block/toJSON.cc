@@ -1,20 +1,22 @@
 #include "Block.hpp"
 #include <sstream>
 #include <string>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
-string join_transactions(vector<Transaction> transactions) {
+string join_transactions(vector<Transaction *> transactions) {
     stringstream ss;
 
     ss << "[";
 
-    for (
-        vector<Transaction>::iterator it = transactions.begin();
-        it != transactions.end();
-        ++it, ss << ",") {
-        ss << it->toJSON();
-    }
+    for_each(
+        transactions.begin(),
+        transactions.end(),
+        [&ss, sep=','](Transaction * transaction) mutable {
+            ss << transaction->toJSON();
+        });
 
     ss << "]";
 
@@ -27,11 +29,12 @@ string Block::toJSON() {
     string transactions = join_transactions(this->transactions);
 
     ss  << "{"
-            << R"("hash":)" << hash << R"(",)"
-            << R"("index":)" << index << R"(,)"
-            << R"("data":")" << data << R"(",)"
-            << R"("proof":)" << proof << R"(,)"
-            << R"("transactions":)" << transactions
+            << R"("prev_hash":")"   << prevHash     << R"(",)"
+            << R"("hash":")"        << hash         << R"(",)"
+            << R"("index":)"        << index        << R"(,)"
+            << R"("data":")"        << data         << R"(",)"
+            << R"("proof":)"        << proof        << R"(,)"
+            << R"("transactions":)" << transactions << ""
         << "}";
 
     return ss.str();

@@ -1,10 +1,6 @@
 #include "Transaction.hpp"
-#include "../Wallet/Wallet.hpp"
 
-Transaction::Transaction(
-    Wallet sender, 
-    Wallet recipient, 
-    double amount) :
+Transaction::Transaction() :
     sender(sender), 
     recipient(recipient),
     amount(amount)

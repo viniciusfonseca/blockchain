@@ -5,9 +5,9 @@ string Transaction::toJSON() {
     stringstream ss;
 
     ss  << "{"
-            << R"("sender": ")" << sender.address << R"(",)"
-            << R"("recipient": ")" << recipient.address << R"(",)"
-            << R"("amount": )" << amount << ""
+            << R"("sender": ")"     << sender       << R"(",)"
+            << R"("recipient": ")"  << recipient    << R"(",)"
+            << R"("amount": )"      << amount       << ""
         << "}";
 
     return ss.str();

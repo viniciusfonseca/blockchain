@@ -25,7 +25,7 @@ Block::Builder Block::Builder::setData(const string & data) {
     return *this;
 }
 
-Block::Builder Block::Builder::setTransactions(vector<Transaction> transactions) {
+Block::Builder Block::Builder::setTransactions(vector<Transaction *> transactions) {
     block->transactions = transactions;
     return *this;
 }

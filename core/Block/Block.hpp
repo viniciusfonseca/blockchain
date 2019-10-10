@@ -5,7 +5,6 @@
 #include <vector>
 
 #include "../Transaction/Transaction.hpp"
-#include "../Wallet/Wallet.hpp"
 
 using namespace std;
 
@@ -23,7 +22,7 @@ class Block {
                 Block::Builder setIndex(uint32_t index);
                 Block::Builder setPrevHash(string prevHash);
                 Block::Builder setProof(uint32_t proof);
-                Block::Builder setTransactions(vector<Transaction> transactions);
+                Block::Builder setTransactions(vector<Transaction *> transactions);
                 Block::Builder setData(const string &data);
                 Block * done();
             private:
@@ -39,7 +38,7 @@ class Block {
         string data;
         string hash;
         time_t timestamp;
-        vector<Transaction> transactions;
+        vector<Transaction *> transactions;
         string calculateHash() const;
 };
 

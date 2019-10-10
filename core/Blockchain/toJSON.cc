@@ -1,8 +1,6 @@
 #include <sstream>
 #include "Blockchain.hpp"
 
-
-
 string Blockchain::toJSON() {
     stringstream ss;
 

@@ -18,23 +18,23 @@ using namespace std;
 class Blockchain {
     public:
         Blockchain();
+        double block_reward;
 
-        void addBlock(string, uint32_t);
+        void addBlock(string data, uint32_t proof);
         void doHalving();
         void print();
         uint32_t addTransaction(
-            Wallet sender,
-            Wallet recipient,
+            string sender,
+            string recipient,
             double amount
         );
         string toJSON();
+        Block * getLastBlock() const;
 
     private:
         uint32_t difficulty;
-        double block_reward;
         vector<Block *> chain;
         // vector<Node> network;
-        vector<Transaction> current_transactions;
+        vector<Transaction *> current_transactions;
         double block_halving_cap;
-        Block * getLastBlock() const;
 };

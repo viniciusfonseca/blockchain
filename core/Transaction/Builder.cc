@@ -1,23 +1,24 @@
 #include "Transaction.hpp"
-#include "../Wallet/Wallet.hpp"
 
-Transaction::Builder::Builder() : transaction(transaction) {}
+Transaction::Builder::Builder() : transaction(transaction) {
+    transaction = new Transaction();
+}
 
-Transaction::Builder Transaction::Builder::setSender(Wallet sender) {
-    transaction.sender = sender;
+Transaction::Builder Transaction::Builder::setSender(string sender) {
+    transaction->sender = sender;
     return *this;
 }
 
-Transaction::Builder Transaction::Builder::setRecipient(Wallet recipient) {
-    transaction.recipient = recipient;
+Transaction::Builder Transaction::Builder::setRecipient(string recipient) {
+    transaction->recipient = recipient;
     return *this;
 }
 
 Transaction::Builder Transaction::Builder::setAmount(double amount) {
-    transaction.amount = amount;
+    transaction->amount = amount;
     return *this;
 }
 
-Transaction Transaction::Builder::done() {
+Transaction * Transaction::Builder::done() {
     return transaction;
 }

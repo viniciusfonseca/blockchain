@@ -3,11 +3,11 @@
 #include "../Transaction/Transaction.hpp"
 
 uint32_t Blockchain::addTransaction(
-    Wallet sender, 
-    Wallet recipient,
+    string sender, 
+    string recipient,
     double amount) {
 
-    Transaction transaction = Transaction::Builder()
+    Transaction * transaction = Transaction::Builder()
         .setSender(sender)
         .setRecipient(recipient)
         .setAmount(amount)
