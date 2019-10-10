@@ -25,12 +25,13 @@ class Block {
                 Block::Builder setProof(uint32_t proof);
                 Block::Builder setTransactions(vector<Transaction> transactions);
                 Block::Builder setData(const string &data);
-                Block done();
+                Block * done();
             private:
-                Block & block;
+                Block * block;
         };
 
         string getHash();
+        string toJSON();
         void mine(uint32_t difficulty);
         
     private:

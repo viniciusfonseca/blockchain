@@ -15,5 +15,5 @@ uint32_t Blockchain::addTransaction(
 
     current_transactions.push_back(transaction);
 
-    return getLastBlock().index + 1;
+    return getLastBlock()->index + 1;
 }

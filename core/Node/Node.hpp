@@ -1,14 +1,25 @@
 #pragma once
 
 #include <iostream>
+#include <pthread.h>
+#include "../Blockchain/Blockchain.hpp"
+#include "../../lib/httplib/httplib.h"
 
 using namespace std;
+using namespace httplib;
+
+class Blockchain;
 
 class Node {
     
-    private:
-        string ip;
-
     public:
-        Node(string ip);
+        Node();
+        void start();
+
+    private:
+        Blockchain * chain = nullptr;
+        Server server;
+        pthread_t server_thread;
+        string ip;
+        string id;
 };

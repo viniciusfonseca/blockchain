@@ -27,17 +27,14 @@ class Blockchain {
             Wallet recipient,
             double amount
         );
-        uint32_t pow(uint32_t lastProof);
-        bool validateProof(uint32_t last_proof, uint32_t proof);
+        string toJSON();
 
     private:
-        
         uint32_t difficulty;
         double block_reward;
-        vector<Block> chain;
-        vector<Node> network;
+        vector<Block *> chain;
+        // vector<Node> network;
         vector<Transaction> current_transactions;
         double block_halving_cap;
-
-    Block getLastBlock() const;
+        Block * getLastBlock() const;
 };

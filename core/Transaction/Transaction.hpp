@@ -17,6 +17,7 @@ class Transaction {
             private:
                 Transaction & transaction;
         };
+        string toJSON();
 
     private:
         Wallet sender;

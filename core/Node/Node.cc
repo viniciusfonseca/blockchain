@@ -1,3 +1,5 @@
 #include "Node.hpp"
 
-Node::Node(string ip) : ip(ip) {};
+Node::Node() {
+    this->chain = new Blockchain();
+};

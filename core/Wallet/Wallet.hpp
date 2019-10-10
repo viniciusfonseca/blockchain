@@ -8,8 +8,8 @@ class Wallet {
 
     public:
         Wallet(string address);
+        string address;
 
     private:
-        string address;
         double amount;
 };
