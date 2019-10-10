@@ -7,11 +7,17 @@ uint32_t Blockchain::addTransaction(
     string recipient,
     double amount) {
 
-    Transaction * transaction = Transaction::Builder()
-        .setSender(sender)
-        .setRecipient(recipient)
-        .setAmount(amount)
-        .done();
+    cout << "will create tr" << endl;
+
+    Transaction::Builder * tx = new Transaction::Builder();
+
+    Transaction * transaction = tx
+        ->setSender(sender)
+        ->setRecipient(recipient)
+        ->setAmount(amount)
+        ->done();
+
+    cout << "created 2" << endl;
 
     current_transactions.push_back(transaction);
 

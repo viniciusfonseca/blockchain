@@ -12,9 +12,9 @@ class Transaction {
         class Builder {
             public:
                 Builder();
-                Builder setSender(string sender);
-                Builder setRecipient(string recipient);
-                Builder setAmount(double amount);
+                Builder * setSender(string sender);
+                Builder * setRecipient(string recipient);
+                Builder * setAmount(double amount);
                 Transaction * done();
             private:
                 Transaction * transaction;

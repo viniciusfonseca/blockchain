@@ -9,8 +9,8 @@ string Blockchain::toJSON() {
     for_each(
         chain.begin(),
         chain.end(),
-        [&ss, sep=','](Block * block) mutable {
-            ss << block->toJSON();
+        [&ss, sep=""](Block * block) mutable {
+            ss << sep << block->toJSON(); sep = ",";
         });
 
     ss << "]";

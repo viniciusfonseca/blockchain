@@ -14,8 +14,8 @@ string join_transactions(vector<Transaction *> transactions) {
     for_each(
         transactions.begin(),
         transactions.end(),
-        [&ss, sep=','](Transaction * transaction) mutable {
-            ss << transaction->toJSON();
+        [&ss, sep=""](Transaction * transaction) mutable {
+            ss << sep << transaction->toJSON(); sep = "";
         });
 
     ss << "]";

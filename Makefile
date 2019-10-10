@@ -6,6 +6,6 @@ node:
 		core/Block/*.cc \
 		core/Transaction/*.cc \
 		lib/sha256/*.cc \
-		-o start_node \
+		-o start_node
 
 test:
