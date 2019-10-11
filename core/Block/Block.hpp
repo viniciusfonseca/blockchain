@@ -19,11 +19,11 @@ class Block {
         class Builder {
             public:
                 Builder();
-                Block::Builder setIndex(uint32_t index);
-                Block::Builder setPrevHash(string prevHash);
-                Block::Builder setProof(uint32_t proof);
-                Block::Builder setTransactions(vector<Transaction *> transactions);
-                Block::Builder setData(const string &data);
+                Block::Builder * setIndex(uint32_t index);
+                Block::Builder * setPrevHash(string prevHash);
+                Block::Builder * setProof(uint32_t proof);
+                Block::Builder * setTransactions(vector<Transaction *> transactions);
+                Block::Builder * setData(const string &data);
                 Block * done();
             private:
                 Block * block;

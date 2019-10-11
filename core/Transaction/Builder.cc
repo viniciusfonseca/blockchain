@@ -1,12 +1,15 @@
 #include <iostream>
+#include <memory>
 #include "Transaction.hpp"
 
 using namespace std;
 
-Transaction::Builder::Builder() : transaction(transaction) {
+Transaction::Builder::Builder() {
 
     cout << "will create tr ptr" << endl;
-    transaction = new Transaction();
+    unique_ptr<Transaction> ptr_tx(new Transaction);
+    // transaction = new Transaction();
+    transaction = ptr_tx.release();
     cout << "created" << endl;
 }
 

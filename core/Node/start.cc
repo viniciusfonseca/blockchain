@@ -48,10 +48,17 @@ void Node::start() {
         });
 
         server.Post("/mine", [&](const Request& req, Response& res) {
+            if (this->mining) {
+                res.status = 409;
+                res.set_content(R"({ "message": "a block is already being mined" })", "application/json");
+                return;
+            }
+            this->mining = true;
             cout << "mining block..." << endl;
             chain->addTransaction("", id, chain->block_reward);
             cout << "transaction added" << endl;
             chain->addBlock("[Block Mined]", 100);
+            this->mining = false;
             cout << "block mined" << endl;
             res.set_content(chain->getLastBlock()->toJSON(), "application/json");
         });

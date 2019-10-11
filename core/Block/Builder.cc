@@ -5,29 +5,29 @@ Block::Builder::Builder() : block(block) {
     this->block = new Block();
 }
 
-Block::Builder Block::Builder::setIndex(uint32_t index) {
+Block::Builder * Block::Builder::setIndex(uint32_t index) {
     block->index = index;
-    return *this;
+    return this;
 }
 
-Block::Builder Block::Builder::setPrevHash(string prevHash) {
+Block::Builder * Block::Builder::setPrevHash(string prevHash) {
     block->prevHash = prevHash;
-    return *this;
+    return this;
 }
 
-Block::Builder Block::Builder::setProof(uint32_t proof) {
+Block::Builder * Block::Builder::setProof(uint32_t proof) {
     block->proof = proof;
-    return *this;
+    return this;
 }
 
-Block::Builder Block::Builder::setData(const string & data) {
+Block::Builder * Block::Builder::setData(const string & data) {
     block->data = data;
-    return *this;
+    return this;
 }
 
-Block::Builder Block::Builder::setTransactions(vector<Transaction *> transactions) {
+Block::Builder * Block::Builder::setTransactions(vector<Transaction *> transactions) {
     block->transactions = transactions;
-    return *this;
+    return this;
 }
 
 Block * Block::Builder::done() {

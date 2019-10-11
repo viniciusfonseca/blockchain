@@ -17,6 +17,7 @@ class Node {
         void start();
 
     private:
+        bool mining = false;
         Blockchain * chain = nullptr;
         Server server;
         pthread_t server_thread;
